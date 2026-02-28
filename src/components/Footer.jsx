@@ -11,7 +11,7 @@ const Footer = () => {
                 {/* Column 1: Academy Info */}
                 <div className="footer-col academy-info">
                     <div className="footer-brand">
-                        <img src="/evolution-logo.png" alt="Evolution Academy" className="footer-logo-img" />
+                        <img src={`${import.meta.env.BASE_URL}evolution-logo.png`} alt="Evolution Academy" className="footer-logo-img" />
                         <h2 className="footer-logo">EVOLUTION</h2>
                     </div>
                     <p className="footer-intro">

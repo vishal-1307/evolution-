@@ -38,7 +38,7 @@ const Home = () => {
     return (
         <div className="home">
             {/* 1. Hero Banner */}
-            <section className="hero">
+            <section className="hero" style={{ backgroundImage: `linear-gradient(to right, rgba(0, 8, 10, 0.8), rgba(0, 20, 30, 0.6)), url('${import.meta.env.BASE_URL}hero-bg.png')` }}>
                 <div className="hero-overlay"></div>
                 <div className="hero-content container text-center">
                     <h1 className="hero-title">
@@ -111,10 +111,10 @@ const Home = () => {
                         <Link to="/gallery" className="view-all-link">View All Gallery <ArrowRight size={16} /></Link>
                     </div>
                     <div className="gallery-grid-home">
-                        <div className="gallery-item-home item-1"></div>
-                        <div className="gallery-item-home item-2"></div>
-                        <div className="gallery-item-home item-3"></div>
-                        <div className="gallery-item-home item-4"></div>
+                        <div className="gallery-item-home item-1" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}photo-015.jpg')` }}></div>
+                        <div className="gallery-item-home item-2" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}photo-060.jpg')` }}></div>
+                        <div className="gallery-item-home item-3" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}photo-025.jpg')` }}></div>
+                        <div className="gallery-item-home item-4" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}photo-065.jpg')` }}></div>
                     </div>
                 </div>
             </section>

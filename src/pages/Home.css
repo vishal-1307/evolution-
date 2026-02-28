@@ -1,7 +1,7 @@
 /* 1. Hero Banner */
 .hero {
     height: 100vh;
-    background: linear-gradient(to right, rgba(0, 8, 10, 0.8), rgba(0, 20, 30, 0.6)), url('/hero-bg.png') no-repeat center center/cover;
+    background: linear-gradient(to right, rgba(0, 8, 10, 0.8), rgba(0, 20, 30, 0.6)) no-repeat center center/cover;
     position: relative;
     display: flex;
     align-items: center;

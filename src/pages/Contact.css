@@ -8,7 +8,6 @@
 .contact-hero {
     text-align: center;
     padding: 80px 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/hero-bg.png') center/cover;
     border-bottom: 2px solid var(--color-primary);
 }
 

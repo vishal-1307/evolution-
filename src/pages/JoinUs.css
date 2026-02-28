@@ -4,7 +4,6 @@
 }
 
 .join-hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/hero-bg.png') center/cover;
     padding: 100px 20px;
     text-align: center;
 }

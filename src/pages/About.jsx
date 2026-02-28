@@ -24,7 +24,7 @@ const About = () => {
     return (
         <div className="about-page">
             {/* Hero */}
-            <section className="about-hero">
+            <section className="about-hero" style={{ background: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('${import.meta.env.BASE_URL}karate-class.png') center/cover` }}>
                 <div className="container">
                     <h1>ABOUT <span className="highlight">EVOLUTION</span></h1>
                     <p>More than an academy. A legacy of discipline and art.</p>
@@ -53,7 +53,7 @@ const About = () => {
                         </div>
                     </div>
                     <div className="story-image">
-                        <img src="/photo-090.jpg" alt="Our Journey" />
+                        <img src={`${import.meta.env.BASE_URL}photo-090.jpg`} alt="Our Journey" />
                     </div>
                 </div>
             </section>
@@ -98,7 +98,7 @@ const About = () => {
                 <div className="instructors-grid">
                     <div className="instructor-card">
                         <div className="instructor-img-wrapper">
-                            <img src="/photo-045.jpg" alt="Sensei Rahul" />
+                            <img src={`${import.meta.env.BASE_URL}photo-045.jpg`} alt="Sensei Rahul" />
                         </div>
                         <h3>Sensei Rahul Kumar</h3>
                         <span className="sc-role">HEAD KARATE INSTRUCTOR</span>
@@ -110,7 +110,7 @@ const About = () => {
                     </div>
                     <div className="instructor-card">
                         <div className="instructor-img-wrapper">
-                            <img src="/photo-080.jpg" alt="Priya Singh" />
+                            <img src={`${import.meta.env.BASE_URL}photo-080.jpg`} alt="Priya Singh" />
                         </div>
                         <h3>Priya Singh</h3>
                         <span className="sc-role" onClick={handleSecretClick} style={{ cursor: 'default', userSelect: 'none' }}>HEAD DANCE CHOREOGRAPHER</span>

@@ -37,7 +37,7 @@ const Contact = () => {
 
     return (
         <div className="contact-page">
-            <div className="contact-hero">
+            <div className="contact-hero" style={{ background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${import.meta.env.BASE_URL}hero-bg.png') center/cover` }}>
                 <h1>Get In <span className="highlight">Touch</span></h1>
                 <p>Start your journey with us today</p>
             </div>

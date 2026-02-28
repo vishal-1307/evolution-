@@ -15,7 +15,7 @@ const Loader = ({ onFinish }) => {
     return (
         <div className={`loader ${fadeOut ? 'fade-out' : ''}`}>
             <div className="loader-content">
-                <img src="/evolution-logo.png" alt="Evolution" className="loader-logo" />
+                <img src={`${import.meta.env.BASE_URL}evolution-logo.png`} alt="Evolution" className="loader-logo" />
                 <h1 className="loader-title">EVOLUTION</h1>
                 <p className="loader-subtitle">Dance & Karate Academy</p>
                 <div className="loader-bar">

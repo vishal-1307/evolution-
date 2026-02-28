@@ -15,7 +15,7 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="container navbar-content">
                 <Link to="/" className="logo" onClick={closeMenu}>
-                    <img src="/evolution-logo.png" alt="Evolution Academy" className="logo-img" />
+                    <img src={`${import.meta.env.BASE_URL}evolution-logo.png`} alt="Evolution Academy" className="logo-img" />
                     <span className="logo-text">EVOLUTION</span>
                 </Link>
 

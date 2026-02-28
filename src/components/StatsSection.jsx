@@ -8,7 +8,7 @@ const StatsSection = () => {
 
                 {/* Left Side: Artistic Image */}
                 <div className="stats-image-wrapper">
-                    <img src="/photo-070.jpg" alt="Dancer" className="stats-dancer-img" />
+                    <img src={`${import.meta.env.BASE_URL}photo-070.jpg`} alt="Dancer" className="stats-dancer-img" />
                     {/* Decorative Paint/Brush effect could go here if we had SVGs, 
               for now we'll use CSS shapes/gradients */}
                     <div className="stats-blob"></div>

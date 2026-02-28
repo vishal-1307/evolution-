@@ -4,7 +4,7 @@ import './Classes.css';
 const Classes = () => {
     return (
         <div className="classes-page">
-            <div className="page-header-classes">
+            <div className="page-header-classes" style={{ background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${import.meta.env.BASE_URL}hero-bg.png')` }}>
                 <h1>Our <span className="highlight">Programs</span></h1>
                 <p>Train your body and mind with our expert-led courses.</p>
             </div>
@@ -41,7 +41,7 @@ const Classes = () => {
                     <button className="btn-primary">Join Karate</button>
                 </div>
                 <div className="program-image">
-                    <img src="/photo-035.jpg" alt="Karate Class" />
+                    <img src={`${import.meta.env.BASE_URL}photo-035.jpg`} alt="Karate Class" />
                 </div>
             </section>
 
@@ -77,7 +77,7 @@ const Classes = () => {
                     <button className="btn-primary">Join Dance</button>
                 </div>
                 <div className="program-image">
-                    <img src="/photo-020.jpg" alt="Dance Class" />
+                    <img src={`${import.meta.env.BASE_URL}photo-020.jpg`} alt="Dance Class" />
                 </div>
             </section>
 

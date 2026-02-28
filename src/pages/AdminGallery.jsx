@@ -7,27 +7,28 @@ const ADMIN_PASSWORD = 'evolution@2015';
 const STORAGE_KEY = 'evolution_gallery_config';
 
 /* --- helpers --- */
+const BASE = import.meta.env.BASE_URL;
 const defaultImages = [
-    { src: "/photo-015.jpg", category: "Performance", alt: "Group dance at Sharad Mahotsav" },
-    { src: "/photo-060.jpg", category: "Performance", alt: "Bihar Udyami Mela performance" },
-    { src: "/photo-020.jpg", category: "Performance", alt: "Solo classical dance performance" },
-    { src: "/photo-025.jpg", category: "Performance", alt: "Solo dance on stage" },
-    { src: "/photo-070.jpg", category: "Performance", alt: "Group dance on stage" },
-    { src: "/photo-045.jpg", category: "Performance", alt: "Dance competition performance" },
-    { src: "/photo-001.jpg", category: "Events", alt: "Student performing at school event" },
-    { src: "/photo-005.jpg", category: "Events", alt: "Cultural event performance" },
-    { src: "/photo-010.jpg", category: "Events", alt: "Republic Day cultural performance" },
-    { src: "/photo-035.jpg", category: "Events", alt: "Dance at school function" },
-    { src: "/photo-090.jpg", category: "Events", alt: "Madhubani Mahotsav group photo" },
-    { src: "/photo-100.jpg", category: "Events", alt: "Sharad Mahotsav event" },
-    { src: "/photo-030.jpg", category: "Awards", alt: "Award ceremony - receiving trophy" },
-    { src: "/photo-119.jpg", category: "Awards", alt: "Navratri Elite Club certificate" },
-    { src: "/photo-065.jpg", category: "Awards", alt: "Students with awards on stage" },
-    { src: "/photo-055.jpg", category: "Awards", alt: "Dance Ka Dangal TV show participation" },
-    { src: "/photo-080.jpg", category: "Team", alt: "Instructor with students group selfie" },
-    { src: "/photo-040.jpg", category: "Team", alt: "Dance team group photo" },
-    { src: "/photo-050.jpg", category: "Team", alt: "Academy team outing" },
-    { src: "/photo-110.jpg", category: "Team", alt: "Team selfie with students" },
+    { src: `${BASE}photo-015.jpg`, category: "Performance", alt: "Group dance at Sharad Mahotsav" },
+    { src: `${BASE}photo-060.jpg`, category: "Performance", alt: "Bihar Udyami Mela performance" },
+    { src: `${BASE}photo-020.jpg`, category: "Performance", alt: "Solo classical dance performance" },
+    { src: `${BASE}photo-025.jpg`, category: "Performance", alt: "Solo dance on stage" },
+    { src: `${BASE}photo-070.jpg`, category: "Performance", alt: "Group dance on stage" },
+    { src: `${BASE}photo-045.jpg`, category: "Performance", alt: "Dance competition performance" },
+    { src: `${BASE}photo-001.jpg`, category: "Events", alt: "Student performing at school event" },
+    { src: `${BASE}photo-005.jpg`, category: "Events", alt: "Cultural event performance" },
+    { src: `${BASE}photo-010.jpg`, category: "Events", alt: "Republic Day cultural performance" },
+    { src: `${BASE}photo-035.jpg`, category: "Events", alt: "Dance at school function" },
+    { src: `${BASE}photo-090.jpg`, category: "Events", alt: "Madhubani Mahotsav group photo" },
+    { src: `${BASE}photo-100.jpg`, category: "Events", alt: "Sharad Mahotsav event" },
+    { src: `${BASE}photo-030.jpg`, category: "Awards", alt: "Award ceremony - receiving trophy" },
+    { src: `${BASE}photo-119.jpg`, category: "Awards", alt: "Navratri Elite Club certificate" },
+    { src: `${BASE}photo-065.jpg`, category: "Awards", alt: "Students with awards on stage" },
+    { src: `${BASE}photo-055.jpg`, category: "Awards", alt: "Dance Ka Dangal TV show participation" },
+    { src: `${BASE}photo-080.jpg`, category: "Team", alt: "Instructor with students group selfie" },
+    { src: `${BASE}photo-040.jpg`, category: "Team", alt: "Dance team group photo" },
+    { src: `${BASE}photo-050.jpg`, category: "Team", alt: "Academy team outing" },
+    { src: `${BASE}photo-110.jpg`, category: "Team", alt: "Team selfie with students" },
 ];
 
 const categories = ['Performance', 'Events', 'Awards', 'Team'];

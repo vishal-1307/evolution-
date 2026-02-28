@@ -56,7 +56,7 @@ const JoinUs = () => {
 
     return (
         <div className="join-page">
-            <div className="join-hero">
+            <div className="join-hero" style={{ background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${import.meta.env.BASE_URL}hero-bg.png') center/cover` }}>
                 <div className="container">
                     <h1>JOIN <span className="highlight">EVOLUTION</span></h1>
                     <p>Start your journey towards excellence today.</p>
