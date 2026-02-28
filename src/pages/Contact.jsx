@@ -14,25 +14,37 @@ const Contact = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const encode = (data) => {
-        return Object.keys(data)
-            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-            .join("&");
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch("/", {
+        const data = {
+            access_key: "72da7e43-a274-46bd-bccf-78b30ebcfe78",
+            subject: "New Message (Contact Page)",
+            from_name: "Evolution Website",
+            ...formData
+        };
+
+        fetch("https://api.web3forms.com/submit", {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...formData })
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify(data)
         })
-            .then(() => {
-                alert("Message Sent! We will get back to you soon.");
-                setFormData({ name: '', email: '', phone: '', message: '' });
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    alert("Message Sent! We will get back to you soon.");
+                    setFormData({ name: '', email: '', phone: '', message: '' });
+                } else {
+                    alert(json.message);
+                }
             })
-            .catch(error => alert(error));
+            .catch(error => {
+                alert("Something went wrong!");
+                console.log(error);
+            });
     };
 
     return (

@@ -18,40 +18,47 @@ const JoinUs = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const encode = (data) => {
-        return Object.keys(data)
-            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-            .join("&");
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const formBody = {
-            "form-name": "admission",
+        const data = {
+            access_key: "72da7e43-a274-46bd-bccf-78b30ebcfe78",
+            subject: "New Registration Request (Join Page)",
+            from_name: "Evolution Website",
             ...formData
         };
 
-        fetch("/", {
+        fetch("https://api.web3forms.com/submit", {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode(formBody)
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify(data)
         })
-            .then(() => {
-                alert("Registration Request Submitted Successfully!");
-                setFormData({
-                    studentName: '',
-                    age: '',
-                    gender: '',
-                    parentName: '',
-                    phone: '',
-                    email: '',
-                    program: '',
-                    batch: '',
-                    message: ''
-                });
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    alert("Registration Request Submitted Successfully!");
+                    setFormData({
+                        studentName: '',
+                        age: '',
+                        gender: '',
+                        parentName: '',
+                        phone: '',
+                        email: '',
+                        program: '',
+                        batch: '',
+                        message: ''
+                    });
+                } else {
+                    alert(json.message);
+                }
             })
-            .catch(error => alert(error));
+            .catch(error => {
+                alert("Something went wrong!");
+                console.log(error);
+            });
     };
 
     return (

@@ -21,18 +21,34 @@ const Home = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const data = { "form-name": "callback-request", ...formState };
+        const data = {
+            access_key: "72da7e43-a274-46bd-bccf-78b30ebcfe78",
+            subject: "New Callback Request (Home Page)",
+            from_name: "Evolution Website",
+            ...formState
+        };
 
-        fetch("/", {
+        fetch("https://api.web3forms.com/submit", {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: Object.keys(data).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])).join("&")
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify(data)
         })
-            .then(() => {
-                alert("Callback Request Sent!");
-                setFormState({ name: '', age: '', contact: '', program: '' });
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    alert("Callback Request Sent!");
+                    setFormState({ name: '', age: '', contact: '', program: '' });
+                } else {
+                    alert(json.message);
+                }
             })
-            .catch(error => alert(error));
+            .catch(error => {
+                alert("Something went wrong!");
+                console.log(error);
+            });
     };
 
     return (
