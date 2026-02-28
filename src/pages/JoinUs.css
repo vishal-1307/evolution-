@@ -1,0 +1,118 @@
+.join-page {
+    background: #050505;
+    min-height: 100vh;
+}
+
+.join-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/hero-bg.png') center/cover;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.join-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.join-hero p {
+    color: #ccc;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.form-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #111;
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid #222;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.form-header {
+    margin-bottom: 40px;
+}
+
+.form-header p {
+    color: #888;
+    margin-top: 10px;
+}
+
+.form-section {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 30px;
+}
+
+.form-section:last-child {
+    border-bottom: none;
+}
+
+.form-section h3 {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.join-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.join-form-group label {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.join-form-group input,
+.join-form-group select,
+.join-form-group textarea {
+    background: #0a0a0a;
+    border: 1px solid #333;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.join-form-group input:focus,
+.join-form-group select:focus,
+.join-form-group textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.2);
+}
+
+.btn-large {
+    padding: 15px 60px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-wrapper {
+        padding: 30px 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}

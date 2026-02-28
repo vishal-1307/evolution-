@@ -1,0 +1,234 @@
+.page-header-classes {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.page-header-classes h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.program {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 80px 20px;
+}
+
+.program.reverse {
+    flex-direction: row-reverse;
+    background: #222;
+}
+
+.program-content {
+    flex: 1;
+}
+
+.program-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+.program-desc {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.program-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.program-features li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+    color: #ddd;
+}
+
+.program-features li::before {
+    content: '✓';
+    color: var(--color-primary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.program-image {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.program-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Program Details Grid (Duration, Age etc) */
+.program-details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.detail-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-box .label {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.detail-box .value {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .program-details-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+/* Schedule */
+.schedule {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.schedule h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.timetable-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
+}
+
+.timetable {
+    display: grid;
+    grid-template-columns: 100px repeat(6, 1fr);
+    gap: 10px;
+    min-width: 800px;
+    /* Ensure it doesn't break on small screens */
+}
+
+.time-header,
+.day-header {
+    background: #333;
+    padding: 15px;
+    font-weight: bold;
+    color: var(--color-primary);
+    border-radius: 5px;
+}
+
+.time-slot {
+    background: #2a2a2a;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.class-slot {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.class-slot:hover {
+    transform: scale(1.05);
+}
+
+.class-slot.karate {
+    background: rgba(255, 69, 0, 0.2);
+    border: 1px solid var(--color-accent);
+    color: #ff8c69;
+}
+
+.class-slot.dance {
+    background: rgba(106, 13, 173, 0.2);
+    border: 1px solid var(--color-secondary);
+    color: #d8bfd8;
+}
+
+@media (max-width: 900px) {
+    .page-header-classes {
+        padding: 60px 20px;
+    }
+
+    .page-header-classes h1 {
+        font-size: 2.5rem;
+    }
+
+    .program {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .program.reverse {
+        flex-direction: column;
+    }
+
+    .program-features {
+        text-align: left;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .program-features li {
+        margin-bottom: 15px;
+    }
+
+    .schedule {
+        padding: 40px 20px;
+    }
+
+    .timetable {
+        min-width: 600px;
+        /* Allow smaller min-width if possible */
+        gap: 5px;
+    }
+
+    .time-header,
+    .day-header,
+    .time-slot,
+    .class-slot {
+        font-size: 0.85rem;
+        padding: 10px 5px;
+    }
+}

@@ -1,0 +1,348 @@
+/* Global Preview Layout */
+.theme-preview-page {
+    min-height: 100vh;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    transition: background 0.5s, color 0.5s;
+    font-family: 'Inter', sans-serif;
+}
+
+.subtitle {
+    color: #888;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+.theme-controls {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.theme-controls h2 {
+    color: #fff;
+    margin-bottom: 5px;
+    font-family: 'Outfit', sans-serif;
+    /* Clean modern font */
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.theme-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.theme-btn {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+    color: #aaa;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    border-radius: 50px;
+    /* Pill shape for friendly/artistic feel */
+}
+
+.theme-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.theme-btn.active {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    font-weight: 800;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.preview-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 1px solid #333;
+    padding: 60px;
+    border-radius: 20px;
+    transition: all 0.5s;
+}
+
+/* =========================================
+   THEME 1: STAGE PRESENCE (Concert)
+   ========================================= */
+.theme-stage {
+    background: #05000a;
+    color: #fff;
+    --highlight: #E100FF;
+    /* Neon Pink */
+    --highlight-sec: #7F00FF;
+    /* Purple */
+}
+
+.theme-stage .preview-container {
+    background: radial-gradient(circle at top center, rgba(127, 0, 255, 0.3), rgba(5, 0, 10, 0.9));
+    border: 1px solid rgba(225, 0, 255, 0.2);
+    box-shadow: 0 -20px 60px rgba(127, 0, 255, 0.2);
+}
+
+.theme-stage h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(to bottom, #fff, #E100FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(225, 0, 255, 0.5));
+}
+
+.theme-stage .highlight {
+    -webkit-text-fill-color: #fff;
+    /* Reset for specific span if needed */
+}
+
+.theme-stage .preview-btn-primary {
+    background: linear-gradient(90deg, #7F00FF, #E100FF);
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    box-shadow: 0 0 30px rgba(225, 0, 255, 0.4);
+    letter-spacing: 1px;
+}
+
+.theme-stage .preview-btn-secondary {
+    background: transparent;
+    color: #fff;
+    padding: 15px 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-stage .preview-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.theme-stage .preview-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--highlight);
+    box-shadow: 0 0 20px rgba(225, 0, 255, 0.2);
+}
+
+.theme-stage .card-icon {
+    color: var(--highlight);
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 5px var(--highlight));
+}
+
+
+/* =========================================
+   THEME 2: URBAN SOUL (Cinematic)
+   ========================================= */
+.theme-urban_soul {
+    background: #00080a;
+    color: #d0e0e0;
+    --highlight: #00FFA3;
+    /* Teal */
+    --highlight-sec: #FF6600;
+    /* Orange */
+}
+
+.theme-urban_soul .preview-container {
+    background: linear-gradient(to right, rgba(0, 8, 10, 0.9), rgba(0, 20, 25, 0.8)), url('https://images.unsplash.com/photo-1542200932-d843825925a3?auto=format&fit=crop&q=80');
+    /* Abstract texture fallback */
+    background-size: cover;
+    border: 1px solid #1a2a2a;
+}
+
+.theme-urban_soul h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 4px 4px 0px rgba(0, 255, 163, 0.3);
+}
+
+.theme-urban_soul .highlight {
+    color: var(--highlight-sec);
+    text-shadow: none;
+}
+
+.theme-urban_soul .preview-btn-primary {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 15px 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.theme-urban_soul .preview-btn-secondary {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 14px 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.theme-urban_soul .preview-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #222;
+    padding: 30px;
+    border-left: 4px solid var(--highlight);
+}
+
+.theme-urban_soul .preview-card:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-left-color: var(--highlight-sec);
+}
+
+.theme-urban_soul .card-icon {
+    color: var(--highlight);
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   THEME 3: CRIMSON FLOW (Intense)
+   ========================================= */
+.theme-crimson {
+    background: #0a0000;
+    color: #fff;
+    --highlight: #FF0033;
+    /* Vivid Red */
+}
+
+.theme-crimson .preview-container {
+    background: #000;
+    background-image: radial-gradient(circle at bottom right, #330000, transparent 40%);
+    border: 1px solid #330000;
+}
+
+.theme-crimson h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 20px var(--highlight);
+}
+
+.theme-crimson .highlight {
+    color: var(--highlight);
+    text-shadow: 0 0 30px var(--highlight);
+}
+
+.theme-crimson .preview-btn-primary {
+    background: transparent;
+    color: var(--highlight);
+    border: 1px solid var(--highlight);
+    padding: 15px 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px var(--highlight), inset 0 0 10px var(--highlight);
+    border-radius: 4px;
+    text-shadow: 0 0 5px var(--highlight);
+}
+
+.theme-crimson .preview-btn-primary:hover {
+    background: var(--highlight);
+    color: #fff;
+    box-shadow: 0 0 40px var(--highlight);
+    text-shadow: none;
+}
+
+.theme-crimson .preview-btn-secondary {
+    background: transparent;
+    color: #ccc;
+    border: 1px solid #333;
+    padding: 14px 40px;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+.theme-crimson .preview-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 30px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.theme-crimson .preview-card:hover {
+    border-color: var(--highlight);
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.2);
+    transform: translateY(-5px);
+}
+
+.theme-crimson .card-icon {
+    color: var(--highlight);
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 8px var(--highlight));
+}
+
+
+/* Common Layout Stuff */
+.preview-hero {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.preview-hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 10px auto 40px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+.preview-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.preview-btn-primary,
+.preview-btn-secondary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.preview-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+    .preview-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-btns {
+        flex-direction: column;
+    }
+}
