@@ -98,7 +98,7 @@ const About = () => {
                 <div className="instructors-grid">
                     <div className="instructor-card">
                         <div className="instructor-img-wrapper">
-                            <img src={`${import.meta.env.BASE_URL}photo-045.jpg`} alt="Sensei Rahul" />
+                            <img src={`${import.meta.env.BASE_URL}teacher-karate.png`} alt="Sensei Rahul" />
                         </div>
                         <h3>Sensei Rahul Kumar</h3>
                         <span className="sc-role">HEAD KARATE INSTRUCTOR</span>
@@ -110,7 +110,7 @@ const About = () => {
                     </div>
                     <div className="instructor-card">
                         <div className="instructor-img-wrapper">
-                            <img src={`${import.meta.env.BASE_URL}photo-080.jpg`} alt="Manish Thakur" />
+                            <img src={`${import.meta.env.BASE_URL}photo-045.jpg`} alt="Manish Thakur" />
                         </div>
                         <h3>Manish Thakur</h3>
                         <span className="sc-role" onClick={handleSecretClick} style={{ cursor: 'default', userSelect: 'none' }}>HEAD DANCE CHOREOGRAPHER</span>

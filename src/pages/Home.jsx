@@ -62,8 +62,12 @@ const Home = () => {
                         <span className="d-block">WHERE PASSION MEETS DISCIPLINE</span>
                     </h1>
                     <div className="hero-buttons">
-                        <Link to="/join" className="btn-primary">JOIN NOW</Link>
-                        <Link to="/classes" className="btn-secondary">VIEW CLASSES</Link>
+                        <Link to="/join" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                            JOIN NOW <ArrowRight size={20} />
+                        </Link>
+                        <Link to="/classes" className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center' }}>
+                            VIEW CLASSES
+                        </Link>
                     </div>
                 </div>
             </section>

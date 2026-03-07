@@ -16,7 +16,10 @@ const Navbar = () => {
             <div className="container navbar-content">
                 <Link to="/" className="logo" onClick={closeMenu}>
                     <img src={`${import.meta.env.BASE_URL}evolution-logo.png`} alt="Evolution Academy" className="logo-img" />
-                    <span className="logo-text">EVOLUTION</span>
+                    <div className="logo-text-wrapper">
+                        <span className="logo-text">EVOLUTION DANCE</span>
+                        <span className="logo-subtext">& Karate Academy</span>
+                    </div>
                 </Link>
 
                 <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
