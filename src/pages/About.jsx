@@ -110,9 +110,9 @@ const About = () => {
                     </div>
                     <div className="instructor-card">
                         <div className="instructor-img-wrapper">
-                            <img src={`${import.meta.env.BASE_URL}photo-080.jpg`} alt="Priya Singh" />
+                            <img src={`${import.meta.env.BASE_URL}photo-080.jpg`} alt="Manish Thakur" />
                         </div>
-                        <h3>Priya Singh</h3>
+                        <h3>Manish Thakur</h3>
                         <span className="sc-role" onClick={handleSecretClick} style={{ cursor: 'default', userSelect: 'none' }}>HEAD DANCE CHOREOGRAPHER</span>
                         <p>Hip-Hop & Contemporary Specialist | 10+ Years Exp</p>
                         <div className="sc-achievements">
