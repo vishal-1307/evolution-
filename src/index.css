@@ -110,7 +110,7 @@ a {
   border-radius: 50px;
   font-family: var(--font-heading);
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 1px;
   border: none;
   cursor: pointer;
@@ -149,7 +149,7 @@ a {
   border-radius: 50px;
   font-family: var(--font-heading);
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;

@@ -58,7 +58,8 @@ const Home = () => {
                 <div className="hero-overlay"></div>
                 <div className="hero-content container text-center">
                     <h1 className="hero-title">
-                        EVOLUTION DANCE & KARATE ACADEMY
+                        EVOLUTION <br />
+                        DANCE & KARATE ACADEMY
                         <span className="d-block">WHERE PASSION MEETS DISCIPLINE</span>
                     </h1>
                     <div className="hero-buttons">

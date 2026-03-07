@@ -17,8 +17,8 @@ const Navbar = () => {
                 <Link to="/" className="logo" onClick={closeMenu}>
                     <img src={`${import.meta.env.BASE_URL}evolution-logo.png`} alt="Evolution Academy" className="logo-img" />
                     <div className="logo-text-wrapper">
-                        <span className="logo-text">EVOLUTION DANCE</span>
-                        <span className="logo-subtext">& Karate Academy</span>
+                        <span className="logo-text">EVOLUTION</span>
+                        <span className="logo-subtext">Dance & Karate Academy</span>
                     </div>
                 </Link>
 
