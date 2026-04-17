@@ -8,19 +8,15 @@ const Loader = ({ onFinish }) => {
         const timer = setTimeout(() => {
             setFadeOut(true);
             setTimeout(onFinish, 600);
-        }, 2000);
+        }, 1800);
         return () => clearTimeout(timer);
     }, [onFinish]);
 
     return (
-        <div className={`loader ${fadeOut ? 'fade-out' : ''}`}>
+        <div className={`loader-wrapper ${fadeOut ? 'fade-out' : ''}`} style={fadeOut ? { opacity: 0, transition: 'opacity 0.6s ease' } : {}}>
             <div className="loader-content">
-                <img src={`${import.meta.env.BASE_URL}evolution-logo.png`} alt="Evolution" className="loader-logo" />
-                <h1 className="loader-title">EVOLUTION</h1>
-                <p className="loader-subtitle">Dance & Karate Academy</p>
-                <div className="loader-bar">
-                    <div className="loader-bar-fill"></div>
-                </div>
+                <span className="loader-logo">EVOLUTION</span>
+                <div className="loader-bar"></div>
             </div>
         </div>
     );

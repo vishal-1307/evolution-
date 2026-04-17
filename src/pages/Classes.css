@@ -1,233 +1,174 @@
+/* ===== CLASSES PAGE — GOLD DOJO ===== */
+
 .page-header-classes {
-    background-size: cover;
-    background-position: center;
-    padding: 100px 20px;
-    text-align: center;
+  padding: 160px 0 80px;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
 }
 
-.page-header-classes h1 {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
-}
+.page-header-classes h1 { margin-bottom: 12px; }
+.page-header-classes p { font-size: 1.1rem; color: var(--color-text-muted); }
 
+/* Program Section */
 .program {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    padding: 80px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 80px 0;
 }
 
-.program.reverse {
-    flex-direction: row-reverse;
-    background: #222;
-}
-
-.program-content {
-    flex: 1;
-}
+.program.reverse { direction: rtl; }
+.program.reverse > * { direction: ltr; }
 
 .program-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: var(--color-primary);
+  margin-bottom: 16px;
 }
 
 .program-desc {
-    font-size: 1.1rem;
-    color: #ccc;
-    margin-bottom: 30px;
-    line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 24px;
 }
 
 .program-features {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
+  list-style: none;
+  margin-bottom: 28px;
 }
 
 .program-features li {
-    margin-bottom: 10px;
-    padding-left: 25px;
-    position: relative;
-    color: #ddd;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .program-features li::before {
-    content: '✓';
-    color: var(--color-primary);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
+  content: '→';
+  color: var(--color-primary-dark);
 }
 
-.program-image {
-    flex: 1;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.program-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Program Details Grid (Duration, Age etc) */
 .program-details-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
 .detail-box {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 15px;
-    border-radius: 4px;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-surface);
+  padding: 16px;
+  border-radius: var(--border-radius);
+  text-align: center;
 }
 
 .detail-box .label {
-    display: block;
-    font-size: 0.8rem;
-    color: #888;
-    text-transform: uppercase;
-    margin-bottom: 5px;
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  margin-bottom: 4px;
 }
 
 .detail-box .value {
-    display: block;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
 }
 
-@media (max-width: 600px) {
-    .program-details-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
+.program-image img {
+  width: 100%;
+  border-radius: var(--border-radius-lg);
+  object-fit: cover;
+  max-height: 400px;
+  filter: brightness(0.85);
+  transition: all 0.4s ease;
+}
+
+.program-image img:hover {
+  filter: brightness(1);
+  transform: scale(1.02);
 }
 
 /* Schedule */
 .schedule {
-    padding: 80px 20px;
-    text-align: center;
+  padding: 80px 0 100px;
 }
 
-.schedule h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-}
+.schedule h2 { margin-bottom: 36px; text-align: center; }
 
 .timetable-wrapper {
-    overflow-x: auto;
-    width: 100%;
-    -webkit-overflow-scrolling: touch;
-    /* Smooth scrolling on iOS */
+  overflow-x: auto;
 }
 
 .timetable {
-    display: grid;
-    grid-template-columns: 100px repeat(6, 1fr);
-    gap: 10px;
-    min-width: 800px;
-    /* Ensure it doesn't break on small screens */
+  display: grid;
+  grid-template-columns: 100px repeat(6, 1fr);
+  gap: 4px;
+  min-width: 700px;
 }
 
-.time-header,
-.day-header {
-    background: #333;
-    padding: 15px;
-    font-weight: bold;
-    color: var(--color-primary);
-    border-radius: 5px;
+.time-header, .day-header {
+  background: var(--color-surface-high);
+  padding: 14px 8px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+  border-radius: var(--border-radius);
 }
 
 .time-slot {
-    background: #2a2a2a;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    border-radius: 5px;
+  background: var(--color-surface);
+  padding: 14px 8px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+  border-radius: var(--border-radius);
 }
 
 .class-slot {
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.class-slot:hover {
-    transform: scale(1.05);
+  padding: 14px 8px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
 }
 
 .class-slot.karate {
-    background: rgba(255, 69, 0, 0.2);
-    border: 1px solid var(--color-accent);
-    color: #ff8c69;
+  background: rgba(242, 195, 91, 0.08);
+  color: var(--color-primary);
+  border: 1px solid rgba(242, 195, 91, 0.15);
 }
 
 .class-slot.dance {
-    background: rgba(106, 13, 173, 0.2);
-    border: 1px solid var(--color-secondary);
-    color: #d8bfd8;
+  background: rgba(201, 201, 201, 0.06);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border-light);
 }
 
+.class-slot:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive */
 @media (max-width: 900px) {
-    .page-header-classes {
-        padding: 60px 20px;
-    }
-
-    .page-header-classes h1 {
-        font-size: 2.5rem;
-    }
-
-    .program {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 20px;
-        gap: 30px;
-    }
-
-    .program.reverse {
-        flex-direction: column;
-    }
-
-    .program-features {
-        text-align: left;
-        display: inline-block;
-        width: 100%;
-    }
-
-    .program-features li {
-        margin-bottom: 15px;
-    }
-
-    .schedule {
-        padding: 40px 20px;
-    }
-
-    .timetable {
-        min-width: 600px;
-        /* Allow smaller min-width if possible */
-        gap: 5px;
-    }
-
-    .time-header,
-    .day-header,
-    .time-slot,
-    .class-slot {
-        font-size: 0.85rem;
-        padding: 10px 5px;
-    }
+  .page-header-classes { padding: 140px 0 60px; }
+  .program { grid-template-columns: 1fr; gap: 30px; padding: 50px 0; }
+  .program.reverse { direction: ltr; }
+  .program-details-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .program-image img { max-height: 280px; }
+  .schedule { padding: 50px 0 60px; }
 }

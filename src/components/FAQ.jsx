@@ -18,7 +18,7 @@ const FAQ = () => {
         },
         {
             question: "Do you provide uniforms?",
-            answer: "For Karate students, we provide the initial karate gi (uniform) as part of the admission kit. Dance students are required to wear comfortable activewear. Specific costumes for stage performances are arranged separately."
+            answer: "For Karate students, we provide the initial karate gi (uniform) as part of the admission kit. Dance students are required to wear comfortable activewear."
         },
         {
             question: "Is parking available at the academy?",
@@ -26,15 +26,15 @@ const FAQ = () => {
         },
         {
             question: "How can I track my child's progress?",
-            answer: "We provide monthly progress reports and conduct parent-teacher meetings. For Karate, students progress through the belt grading system. Dance students showcase their skills in periodic internal performances."
+            answer: "We provide monthly progress reports and conduct parent-teacher meetings. For Karate, students progress through the belt grading system."
         },
         {
             question: "Do you prepare students for competitions?",
-            answer: "Absolutely! We actively prepare and send students for state and national level competitions in both Dance and Karate. Our students have won numerous awards at prestigious events across Bihar and India."
+            answer: "Absolutely! We actively prepare and send students for state and national level competitions in both Dance and Karate."
         },
         {
             question: "What safety measures are in place?",
-            answer: "Our premises are CCTV monitored. We use professional wooden flooring and safety mats to prevent injuries. First-aid kits are always available. We also have female attendants for children's safety."
+            answer: "Our premises are CCTV monitored. We use professional wooden flooring and safety mats. First-aid kits are always available."
         }
     ];
 
@@ -48,21 +48,21 @@ const FAQ = () => {
         <section className="faq-section">
             <div className="container">
                 <div className="section-header text-center">
-                    <h2>FREQUENTLY ASKED <span className="highlight">QUESTIONS</span></h2>
+                    <span className="overline">FAQ</span>
+                    <h2>Frequently Asked Questions</h2>
                     <p>Everything you need to know before joining</p>
                 </div>
                 <div className="faq-list">
                     {faqs.map((faq, index) => (
-                        <div
-                            key={index}
-                            className={`faq-item ${openIndex === index ? 'open' : ''}`}
-                            onClick={() => toggle(index)}
-                        >
-                            <div className="faq-question">
-                                <h3>{faq.question}</h3>
-                                <ChevronDown size={22} className="faq-icon" />
-                            </div>
-                            <div className="faq-answer">
+                        <div key={index} className="faq-item">
+                            <button
+                                className={`faq-question ${openIndex === index ? 'open' : ''}`}
+                                onClick={() => toggle(index)}
+                            >
+                                <span>{faq.question}</span>
+                                <ChevronDown size={20} />
+                            </button>
+                            <div className={`faq-answer ${openIndex === index ? 'open' : ''}`}>
                                 <p>{faq.answer}</p>
                             </div>
                         </div>

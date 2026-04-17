@@ -2,50 +2,24 @@ import React from 'react';
 import './StatsSection.css';
 
 const StatsSection = () => {
+    const stats = [
+        { number: '10+', label: 'Years' },
+        { number: '500+', label: 'Students Trained' },
+        { number: '10+', label: 'Awards Won' },
+        { number: '8', label: 'Programs' }
+    ];
+
     return (
         <section className="stats-section">
-            <div className="container stats-container">
-
-                {/* Left Side: Artistic Image */}
-                <div className="stats-image-wrapper">
-                    <img src={`${import.meta.env.BASE_URL}photo-070.jpg`} alt="Dancer" className="stats-dancer-img" />
-                    {/* Decorative Paint/Brush effect could go here if we had SVGs, 
-              for now we'll use CSS shapes/gradients */}
-                    <div className="stats-blob"></div>
+            <div className="container">
+                <div className="stats-grid">
+                    {stats.map((stat, index) => (
+                        <div className="stat-item" key={index}>
+                            <div className="stat-number">{stat.number}</div>
+                            <div className="stat-label">{stat.label}</div>
+                        </div>
+                    ))}
                 </div>
-
-                {/* Right Side: Content */}
-                <div className="stats-content">
-                    <div className="stats-header">
-                        <h2 className="stats-heading">NUMBERS</h2>
-                        <span className="stats-watermark">AT A GLANCE</span>
-                    </div>
-
-                    <div className="stats-bar">
-                        <div className="stat-item">
-                            <span className="stat-number">2015</span>
-                            <span className="stat-label">Year Founded</span>
-                        </div>
-                        <div className="stat-item">
-                            <span className="stat-number">15+</span>
-                            <span className="stat-label">Expert Faculty</span>
-                        </div>
-                        <div className="stat-item">
-                            <span className="stat-number">500+</span>
-                            <span className="stat-label">Students Trained</span>
-                        </div>
-                        <div className="stat-item">
-                            <span className="stat-number">10+</span>
-                            <span className="stat-label">Awards Won</span>
-                        </div>
-                    </div>
-
-                    <p className="stats-description">
-                        Join the fastest growing community of artists and martial artists in Madhubani.
-                        Experience professional training that transforms beginners into champions.
-                    </p>
-                </div>
-
             </div>
         </section>
     );

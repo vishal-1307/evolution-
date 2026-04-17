@@ -1,5 +1,4 @@
-import React from 'react';
-import { Quote } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 import './Testimonials.css';
 
 const Testimonials = () => {
@@ -21,30 +20,40 @@ const Testimonials = () => {
         }
     ];
 
+    const [current, setCurrent] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrent((prev) => (prev + 1) % reviews.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, [reviews.length]);
+
     return (
-        <section className="testimonials">
+        <section className="testimonials-section">
             <div className="container">
                 <div className="section-header text-center">
-                    <h2 className="section-title">STUDENT <span className="highlight">STORIES</span></h2>
-                    <p className="section-subtitle">Hear from our community.</p>
+                    <span className="overline">Testimonials</span>
+                    <h2>Student Stories</h2>
+                    <p>Hear from our community.</p>
                 </div>
 
-                <div className="testimonials-grid">
-                    {reviews.map((review, index) => (
-                        <div className="testimonial-card" key={index}>
-                            <Quote size={40} className="quote-icon" />
-                            <p className="review-text">"{review.text}"</p>
-                            <div className="reviewer-info">
-                                <div className="reviewer-avatar">
-                                    {review.name.charAt(0)}
-                                </div>
-                                <div>
-                                    <h4>{review.name}</h4>
-                                    <span>{review.role}</span>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                <div className="testimonial-content">
+                    <div className="testimonial-quote-mark">"</div>
+                    <p className="testimonial-text">{reviews[current].text}</p>
+                    <h4 className="testimonial-author">{reviews[current].name}</h4>
+                    <span className="testimonial-role">{reviews[current].role}</span>
+
+                    <div className="testimonial-dots">
+                        {reviews.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`testimonial-dot ${current === index ? 'active' : ''}`}
+                                onClick={() => setCurrent(index)}
+                                aria-label={`Go to testimonial ${index + 1}`}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
