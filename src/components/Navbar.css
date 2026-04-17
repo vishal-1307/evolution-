@@ -1,14 +1,17 @@
-/* Navbar — Dark Gold */
+/* ═══════════════════════════════════════════
+   NAVBAR — Dark Gold | Desktop + Mobile Drawer
+   ═══════════════════════════════════════════ */
+
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(16, 20, 26, 0.85);
+  background: rgba(16, 20, 26, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid rgba(212, 168, 67, 0.12);
   transition: all 0.3s ease;
 }
 
@@ -19,10 +22,14 @@
   padding: 14px 30px;
 }
 
+/* ── Logo ── */
 .logo {
   display: flex;
   align-items: center;
   gap: 12px;
+  text-decoration: none;
+  z-index: 1001;
+  position: relative;
 }
 
 .logo-img {
@@ -55,45 +62,48 @@
   margin-top: 2px;
 }
 
-.nav-links {
+/* ── Desktop Nav ── */
+.desktop-nav {
   display: flex;
   align-items: center;
   gap: 4px;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-links li a {
+.desktop-nav li a {
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 500;
   color: var(--color-text-muted);
   padding: 8px 14px;
   border-radius: var(--border-radius);
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
   letter-spacing: 0.02em;
+  text-decoration: none;
+  display: block;
 }
 
-.nav-links li a:hover,
-.nav-links li a.active {
-  color: #fff;
-}
-
-.nav-links li a.active {
+.desktop-nav li a:hover,
+.desktop-nav li a.active {
   color: var(--color-primary);
 }
 
+/* ── Register Now button (desktop) ── */
 .btn-nav {
   font-family: var(--font-body);
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-primary);
-  padding: 8px 22px;
+  padding: 9px 22px;
   border: 1.5px solid var(--color-primary);
   border-radius: var(--border-radius);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: all 0.3s ease;
   display: inline-block;
+  text-decoration: none;
 }
 
 .btn-nav:hover {
@@ -101,43 +111,232 @@
   color: var(--color-on-primary);
 }
 
+/* ── Hamburger button ── */
 .menu-icon {
   display: none;
   cursor: pointer;
   color: #fff;
-  padding: 4px;
+  background: none;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  z-index: 1001;
+  position: relative;
+  line-height: 0;
 }
 
+.menu-icon:hover { background: rgba(255,255,255,0.08); }
+.menu-icon.open { color: var(--color-primary); }
+
+/* ═══════════════════════════════════════════
+   MOBILE — Overlay + Drawer
+   ═══════════════════════════════════════════ */
 @media (max-width: 900px) {
   .navbar-content { padding: 12px 20px; }
-  
-  .menu-icon {
-    display: block;
-    z-index: 1001;
-  }
 
-  .nav-links {
-    display: none;
+  .menu-icon { display: flex; align-items: center; justify-content: center; }
+
+  .desktop-nav { display: none; }
+
+  /* Dark dimming backdrop */
+  .mobile-overlay {
     position: fixed;
     inset: 0;
-    background: var(--color-bg);
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1010;
+    animation: fadeIn 0.25s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* Slide-in drawer from right */
+  .mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(85vw, 340px);
+    background: #10141a;
+    border-left: 2px solid rgba(212, 168, 67, 0.25);
+    z-index: 1020;
+    padding: 28px 28px 40px;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 0;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow-y: auto;
+  }
+
+  .mobile-drawer.drawer-open {
+    transform: translateX(0);
+  }
+
+  /* Close X button inside drawer */
+  .drawer-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    line-height: 0;
+    transition: background 0.2s;
+  }
+  .drawer-close:hover { background: rgba(212,168,67,0.15); color: var(--color-primary); }
+
+  /* Top badge */
+  .drawer-badge {
+    display: flex;
     align-items: center;
-    gap: 8px;
-    z-index: 999;
+    gap: 14px;
+    margin-top: 8px;
+    margin-bottom: 0;
   }
 
-  .nav-links.active { display: flex; }
+  .drawer-logo {
+    height: 44px;
+    width: auto;
+  }
 
-  .nav-links li a {
+  .drawer-academy-name {
+    font-family: var(--font-heading);
     font-size: 1.1rem;
-    padding: 14px 24px;
+    font-weight: 800;
+    color: var(--color-primary);
+    letter-spacing: 0.08em;
   }
 
-  .btn-nav {
-    font-size: 0.85rem;
-    padding: 12px 32px;
-    margin-top: 12px;
+  .drawer-academy-sub {
+    font-family: var(--font-body);
+    font-size: 0.58rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 2px;
   }
+
+  /* Gold divider */
+  .drawer-divider {
+    height: 2px;
+    background: linear-gradient(to right, var(--color-primary), transparent);
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+
+  /* Nav links */
+  .drawer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .drawer-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 16px;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #c0c4ce;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    animation: slideIn 0.3s ease both;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(24px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  .drawer-link:hover {
+    background: rgba(212, 168, 67, 0.08);
+    border-color: rgba(212, 168, 67, 0.15);
+    color: #fff;
+  }
+
+  .drawer-link-active {
+    background: rgba(212, 168, 67, 0.12);
+    border-color: rgba(212, 168, 67, 0.3);
+    color: var(--color-primary) !important;
+  }
+
+  /* Numbered prefix */
+  .drawer-num {
+    font-family: 'Permanent Marker', cursive, monospace;
+    font-size: 0.7rem;
+    color: var(--color-primary);
+    opacity: 0.6;
+    min-width: 20px;
+  }
+
+  /* CTA — REGISTER NOW */
+  .drawer-cta {
+    display: block;
+    text-align: center;
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 18px;
+    margin-top: 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(212, 168, 67, 0.25);
+  }
+
+  .drawer-cta:hover {
+    background: var(--color-primary-dark);
+    box-shadow: 0 6px 28px rgba(212, 168, 67, 0.35);
+    color: var(--color-on-primary);
+  }
+
+  /* WhatsApp quick link */
+  .drawer-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    color: #9a9daa;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .drawer-whatsapp:hover {
+    border-color: #25D366;
+    color: #25D366;
+  }
+}
+
+/* ── Desktop: hide drawer elements ── */
+@media (min-width: 901px) {
+  .mobile-overlay,
+  .mobile-drawer { display: none !important; }
 }
