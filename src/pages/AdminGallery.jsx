@@ -9,12 +9,6 @@ const STORAGE_KEY = 'evolution_gallery_config';
 /* --- helpers --- */
 const BASE = import.meta.env.BASE_URL;
 const defaultImages = [
-    { src: `${BASE}photo-015.jpg`, category: "Performance", alt: "Group dance at Sharad Mahotsav" },
-    { src: `${BASE}photo-060.jpg`, category: "Performance", alt: "Bihar Udyami Mela performance" },
-    { src: `${BASE}photo-020.jpg`, category: "Performance", alt: "Solo classical dance performance" },
-    { src: `${BASE}photo-025.jpg`, category: "Performance", alt: "Solo dance on stage" },
-    { src: `${BASE}photo-070.jpg`, category: "Performance", alt: "Group dance on stage" },
-    { src: `${BASE}photo-045.jpg`, category: "Performance", alt: "Dance competition performance" },
     { src: `${BASE}photo-001.jpg`, category: "Events", alt: "Student performing at school event" },
     { src: `${BASE}photo-005.jpg`, category: "Events", alt: "Cultural event performance" },
     { src: `${BASE}photo-010.jpg`, category: "Events", alt: "Republic Day cultural performance" },
@@ -31,7 +25,7 @@ const defaultImages = [
     { src: `${BASE}photo-110.jpg`, category: "Team", alt: "Team selfie with students" },
 ];
 
-const categories = ['Performance', 'Events', 'Awards', 'Team'];
+const defaultCategories = ['Performance', 'Events', 'Awards', 'Team'];
 
 const loadGalleryConfig = () => {
     try {
@@ -62,6 +56,8 @@ const AdminGallery = () => {
     const [newImage, setNewImage] = useState({ src: '', category: 'Performance', alt: '' });
     const [dragIndex, setDragIndex] = useState(null);
     const navigate = useNavigate();
+
+    const dynamicCategories = Array.from(new Set([...defaultCategories, ...images.map(img => img.category)]));
 
     // Check if already authenticated in session
     useEffect(() => {
@@ -129,7 +125,11 @@ const AdminGallery = () => {
 
     const handleAddImage = () => {
         if (!newImage.src) return;
-        setImages(prev => [...prev, { ...newImage }]);
+        let finalSrc = newImage.src;
+        if (!finalSrc.startsWith('http') && !finalSrc.startsWith(BASE)) {
+            finalSrc = finalSrc.startsWith('/') ? BASE + finalSrc.slice(1) : BASE + finalSrc;
+        }
+        setImages(prev => [...prev, { ...newImage, src: finalSrc }]);
         setNewImage({ src: '', category: 'Performance', alt: '' });
         setShowAddModal(false);
     };
@@ -207,7 +207,7 @@ const AdminGallery = () => {
             {/* Toolbar */}
             <div className="admin-toolbar">
                 <div className="admin-filters">
-                    {['All', ...categories].map(cat => (
+                    {['All', ...dynamicCategories].map(cat => (
                         <button
                             key={cat}
                             className={`admin-filter-btn ${filterCategory === cat ? 'active' : ''}`}
@@ -259,7 +259,7 @@ const AdminGallery = () => {
                                         value={img.category}
                                         onChange={(e) => handleCategoryChange(realIndex, e.target.value)}
                                     >
-                                        {categories.map(c => <option key={c} value={c}>{c}</option>)}
+                                        {dynamicCategories.map(c => <option key={c} value={c}>{c}</option>)}
                                     </select>
                                     <div className="admin-card-btns">
                                         <button onClick={() => handleMoveUp(realIndex)} title="Move up"><ArrowUp size={14} /></button>
@@ -286,16 +286,22 @@ const AdminGallery = () => {
                             <input
                                 type="text"
                                 value={newImage.src}
-                                onChange={(e) => setNewImage(prev => ({ ...prev, src: e.target.value.startsWith('/') ? e.target.value : '/' + e.target.value }))}
-                                placeholder="/photo-001.jpg"
+                                onChange={(e) => setNewImage(prev => ({ ...prev, src: e.target.value }))}
+                                placeholder="photo-001.jpg"
                             />
                             <div className="admin-modal-preview">
-                                {newImage.src && <img src={newImage.src} alt="Preview" onError={(e) => e.target.style.display = 'none'} />}
+                                {newImage.src && <img src={newImage.src.startsWith('http') || newImage.src.startsWith(BASE) ? newImage.src : (newImage.src.startsWith('/') ? BASE + newImage.src.slice(1) : BASE + newImage.src)} alt="Preview" onLoad={(e) => e.target.style.display = 'block'} onError={(e) => e.target.style.display = 'none'} />}
                             </div>
                             <label>Category</label>
-                            <select value={newImage.category} onChange={(e) => setNewImage(prev => ({ ...prev, category: e.target.value }))}>
-                                {categories.map(c => <option key={c} value={c}>{c}</option>)}
-                            </select>
+                            <input
+                                list="category-options"
+                                value={newImage.category}
+                                onChange={(e) => setNewImage(prev => ({ ...prev, category: e.target.value }))}
+                                placeholder="Select or type new category"
+                            />
+                            <datalist id="category-options">
+                                {dynamicCategories.map(c => <option key={c} value={c}>{c}</option>)}
+                            </datalist>
                             <label>Description</label>
                             <input
                                 type="text"
